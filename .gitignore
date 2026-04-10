@@ -1,0 +1,21 @@
+# MPLAB X general
+nbproject/Makefile-*
+nbproject/private/
+dist/
+build/
+*.X/
+*.d
+*.o
+*.as
+*.cof
+*.lst
+*.sdb
+*.log
+*.symbols
+
+# OS/IDE/backup files
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*~
