@@ -65,6 +65,14 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for UART0_TX pin ***/
+#define UART0_TX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4U)) & 0x01U)
+#define UART0_TX_PIN                  PORT_PIN_PA04
+
+/*** Macros for UART0_RX pin ***/
+#define UART0_RX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 5U)) & 0x01U)
+#define UART0_RX_PIN                  PORT_PIN_PA05
+
 /*** Macros for LED pin ***/
 #define LED_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 18U))
 #define LED_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 18U))
