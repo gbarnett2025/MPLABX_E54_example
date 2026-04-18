@@ -1,0 +1,5 @@
+#ifndef SERIALPROTOCOL_H
+#define SERIALPROTOCOL_H
+
+
+#endif /* SERIALPROTOCOL_H */

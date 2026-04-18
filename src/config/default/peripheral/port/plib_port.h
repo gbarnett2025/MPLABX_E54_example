@@ -65,6 +65,33 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for DATA_CMD_SEL pin ***/
+#define DATA_CMD_SEL_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 1U))
+#define DATA_CMD_SEL_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 1U))
+#define DATA_CMD_SEL_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 1U))
+#define DATA_CMD_SEL_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 1U))
+#define DATA_CMD_SEL_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 1U))
+#define DATA_CMD_SEL_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 1U)) & 0x01U)
+#define DATA_CMD_SEL_PIN                  PORT_PIN_PC01
+
+/*** Macros for BUTN2 pin ***/
+#define BUTN2_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 2U))
+#define BUTN2_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 2U))
+#define BUTN2_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 2U))
+#define BUTN2_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 2U))
+#define BUTN2_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 2U))
+#define BUTN2_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 2U)) & 0x01U)
+#define BUTN2_PIN                  PORT_PIN_PC02
+
+/*** Macros for BUTN3 pin ***/
+#define BUTN3_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 3U))
+#define BUTN3_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 3U))
+#define BUTN3_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 3U))
+#define BUTN3_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 3U))
+#define BUTN3_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 3U))
+#define BUTN3_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 3U)) & 0x01U)
+#define BUTN3_PIN                  PORT_PIN_PC03
+
 /*** Macros for UART0_TX pin ***/
 #define UART0_TX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4U)) & 0x01U)
 #define UART0_TX_PIN                  PORT_PIN_PA04
@@ -72,6 +99,45 @@
 /*** Macros for UART0_RX pin ***/
 #define UART0_RX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 5U)) & 0x01U)
 #define UART0_RX_PIN                  PORT_PIN_PA05
+
+/*** Macros for DISPLAY_MOSI pin ***/
+#define DISPLAY_MOSI_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 4U)) & 0x01U)
+#define DISPLAY_MOSI_PIN                  PORT_PIN_PC04
+
+/*** Macros for DISPLAY_SCK pin ***/
+#define DISPLAY_SCK_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 5U)) & 0x01U)
+#define DISPLAY_SCK_PIN                  PORT_PIN_PC05
+
+/*** Macros for LED1 pin ***/
+#define LED1_Set()               (PORT_REGS->GROUP[3].PORT_OUTSET = ((uint32_t)1U << 10U))
+#define LED1_Clear()             (PORT_REGS->GROUP[3].PORT_OUTCLR = ((uint32_t)1U << 10U))
+#define LED1_Toggle()            (PORT_REGS->GROUP[3].PORT_OUTTGL = ((uint32_t)1U << 10U))
+#define LED1_OutputEnable()      (PORT_REGS->GROUP[3].PORT_DIRSET = ((uint32_t)1U << 10U))
+#define LED1_InputEnable()       (PORT_REGS->GROUP[3].PORT_DIRCLR = ((uint32_t)1U << 10U))
+#define LED1_Get()               (((PORT_REGS->GROUP[3].PORT_IN >> 10U)) & 0x01U)
+#define LED1_PIN                  PORT_PIN_PD10
+
+/*** Macros for LED2 pin ***/
+#define LED2_Set()               (PORT_REGS->GROUP[3].PORT_OUTSET = ((uint32_t)1U << 11U))
+#define LED2_Clear()             (PORT_REGS->GROUP[3].PORT_OUTCLR = ((uint32_t)1U << 11U))
+#define LED2_Toggle()            (PORT_REGS->GROUP[3].PORT_OUTTGL = ((uint32_t)1U << 11U))
+#define LED2_OutputEnable()      (PORT_REGS->GROUP[3].PORT_DIRSET = ((uint32_t)1U << 11U))
+#define LED2_InputEnable()       (PORT_REGS->GROUP[3].PORT_DIRCLR = ((uint32_t)1U << 11U))
+#define LED2_Get()               (((PORT_REGS->GROUP[3].PORT_IN >> 11U)) & 0x01U)
+#define LED2_PIN                  PORT_PIN_PD11
+
+/*** Macros for LED3 pin ***/
+#define LED3_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 10U))
+#define LED3_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 10U))
+#define LED3_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 10U))
+#define LED3_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 10U))
+#define LED3_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 10U))
+#define LED3_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 10U)) & 0x01U)
+#define LED3_PIN                  PORT_PIN_PC10
+
+/*** Macros for DISPLAY_SS pin ***/
+#define DISPLAY_SS_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 14U)) & 0x01U)
+#define DISPLAY_SS_PIN                  PORT_PIN_PC14
 
 /*** Macros for LED pin ***/
 #define LED_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 18U))
@@ -81,6 +147,24 @@
 #define LED_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 18U))
 #define LED_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 18U)) & 0x01U)
 #define LED_PIN                  PORT_PIN_PC18
+
+/*** Macros for BUTN1 pin ***/
+#define BUTN1_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 30U))
+#define BUTN1_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 30U))
+#define BUTN1_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 30U))
+#define BUTN1_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 30U))
+#define BUTN1_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 30U))
+#define BUTN1_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 30U)) & 0x01U)
+#define BUTN1_PIN                  PORT_PIN_PC30
+
+/*** Macros for DISPLAY_RESET pin ***/
+#define DISPLAY_RESET_Set()               (PORT_REGS->GROUP[2].PORT_OUTSET = ((uint32_t)1U << 31U))
+#define DISPLAY_RESET_Clear()             (PORT_REGS->GROUP[2].PORT_OUTCLR = ((uint32_t)1U << 31U))
+#define DISPLAY_RESET_Toggle()            (PORT_REGS->GROUP[2].PORT_OUTTGL = ((uint32_t)1U << 31U))
+#define DISPLAY_RESET_OutputEnable()      (PORT_REGS->GROUP[2].PORT_DIRSET = ((uint32_t)1U << 31U))
+#define DISPLAY_RESET_InputEnable()       (PORT_REGS->GROUP[2].PORT_DIRCLR = ((uint32_t)1U << 31U))
+#define DISPLAY_RESET_Get()               (((PORT_REGS->GROUP[2].PORT_IN >> 31U)) & 0x01U)
+#define DISPLAY_RESET_PIN                  PORT_PIN_PC31
 
 // *****************************************************************************
 /* PORT Group
