@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include <stdarg.h>   // for va_list, va_start, va_end
 #include "HWgpio.h"
+#include "UartHW.h"
 
 TaskHandle_t xUART_Tasks;
 uint8_t rxByteGlobal;             // RX buffer for incoming byte
@@ -71,7 +72,10 @@ void writeUart0(char* message)
     size_t len = strlen(message);
     for ( int offset=0; offset<len; offset++)
     {
-        while (!SERCOM0_USART_Write(&message[offset], 1))
+        //while (!SERCOM0_USART_Write(&message[offset], 1))
+        //        vTaskDelay(pdMS_TO_TICKS(1)); 
+        
+        while (!uart0WriteBridge(&message[offset], 1))
                 vTaskDelay(pdMS_TO_TICKS(1)); 
     } 
 }
@@ -124,11 +128,11 @@ void commandParse(const char *input)
                 uint8_t state;
                 if (strcmp(argv[2], "on") == 0) 
                 {
-                    state = 1;
+                    state = 0; // active low on OLED1
                 } 
                 else if (strcmp(argv[2], "off") == 0) 
                 {
-                    state = 0;
+                    state = 1;
                 } else 
                 {
                     snprintf(responseBuffer, sizeof(responseBuffer), "ERROR LED action: %s\r\n", argv[2]);
@@ -184,8 +188,11 @@ void UART_Task(void *pvParameters)
         {
             // Echo received byte
             // Echo back the received byte
-            while (!SERCOM0_USART_Write(&rxByte, 1))
-                vTaskDelay(pdMS_TO_TICKS(1));       // Not strictly necessary on Harmony, but safest if busy
+            //while (!SERCOM0_USART_Write(&rxByte, 1))
+            //    vTaskDelay(pdMS_TO_TICKS(1));       // Not strictly necessary on Harmony, but safest if busy
+            
+            while (!uart0WriteBridge(&rxByte, 1))
+                vTaskDelay(pdMS_TO_TICKS(1)); 
             
             uartRxByte = rxByte;
             if (uartRxByte == '\r' || uartRxIndex >= UART_RX_BUFFER_SIZE - 1) 
@@ -208,7 +215,8 @@ void SERCOM0_USART_ReadCallback(uintptr_t context)
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
     // 1. IMMEDIATELY start RX for next byte!
-    SERCOM0_USART_Read(&rxByteGlobal, 1);
+    uart0ReadBridge( &rxByteGlobal, 1);
+    //SERCOM0_USART_Read(&rxByteGlobal, 1);
 
     // 2. Then give the *previous* byte to your RTOS code
     xQueueSendFromISR(uartRxQueue, &rxByteGlobal, &xHigherPriorityTaskWoken);
