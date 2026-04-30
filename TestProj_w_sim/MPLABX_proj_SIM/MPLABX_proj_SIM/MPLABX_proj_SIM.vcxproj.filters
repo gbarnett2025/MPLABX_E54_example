@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="GPIO_SIM">
+      <UniqueIdentifier>{513ceac6-fa5c-4cae-ae95-e287dec05553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeRTOS">
+      <UniqueIdentifier>{ebfc4647-6f29-4def-af6d-8f98ed81672d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigurationFiles">
+      <UniqueIdentifier>{39183639-3fa7-46bf-9e27-2c612a7c1292}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MPLABX_proj_SIM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MPLABX_proj\src\mainTasks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MPLABX_proj\src\blink_task.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GPIO_SIM\plib_pio.c">
+      <Filter>GPIO_SIM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\tasks.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\queue.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\stream_buffer.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\timers.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\list.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\event_groups.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\croutine.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\portable\MSVC-MingW\port.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FreeRTOS_Source\portable\MemMang\heap_4.c">
+      <Filter>FreeRTOS</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GPIO_SIM\definitions.h">
+      <Filter>GPIO_SIM</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeRTOSConfig.h">
+      <Filter>ConfigurationFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Trace_Recorder_Configuration\trcSnapshotConfig.h">
+      <Filter>ConfigurationFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Trace_Recorder_Configuration\trcKernelPortSnapshotConfig.h">
+      <Filter>ConfigurationFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Trace_Recorder_Configuration\trcKernelPortConfig.h">
+      <Filter>ConfigurationFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Trace_Recorder_Configuration\trcConfig.h">
+      <Filter>ConfigurationFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

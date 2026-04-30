@@ -12,7 +12,7 @@ build/
 *.sdb
 *.log
 *.symbols
-
+.vs/
 # OS/IDE/backup files
 .DS_Store
 Thumbs.db
